@@ -1,2 +1,73 @@
-# SENTINEL
-test 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinel TM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Digital-7';
+            src: url('https://cdn.jsdelivr.net/gh/keshikan/Digital-7@master/digital-7.ttf') format('truetype');
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: 'Inter', sans-serif;
+            color: black;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+        }
+        .image-container {
+            position: relative;
+            max-width: 400px;
+            width: 100%;
+            margin-top: -60px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+        }
+        .title {
+            position: absolute;
+            top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .title sup {
+            font-size: 12px;
+        }
+        .clock {
+            font-size: 48px;
+            font-weight: bold;
+            font-variant-numeric: tabular-nums;
+            font-family: 'Digital-7', sans-serif;
+        }
+    </style>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const milliseconds = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0');
+            document.getElementById('clock').innerText = `${hours}:${minutes}:${seconds}:${milliseconds}`;
+        }
+        setInterval(updateClock, 10);
+        window.onload = updateClock;
+    </script>
+</head>
+<body>
+    <div class="image-container">
+        <img src="images/hummer.png.gif" alt="Hummer">
+    </div>
+    <div class="title">SENTINEL<sup>TM</sup></div>
+    <div class="clock" id="clock"></div>
+</body>
+</html>
